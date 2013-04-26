@@ -1,0 +1,70 @@
+/****************************************************************************************
+Layout Stylesheet for Middle content: defines widths, margins, floats, and other 
+advanced display attributes for the middle section (sidebars and main content)
+****************************************************************************************/
+
+
+/*********************************
+Main Content - Wrapper
+**********************************/
+#content_main { margin: -20px 0 30px 0; float: left; width: 979px;  padding: 0; }
+
+
+
+/*********************************
+Menu
+**********************************/
+#menu { float: left; width: 240px; margin-right: 20px; margin-top: 0px;}
+
+
+#nav_menu{ border-bottom: 1px solid #9f926b; padding-bottom: 5px; }
+
+
+#nav_menu li { display: inline; }
+
+
+#nav_menu li a { font-size: 12px; text-decoration: none; color: #3f3c30; border: none }
+
+
+#nav_menu li a:hover { color: #00266d }
+
+
+/* Hard-coded IDs - if the footer text changes in footer.html then these IDs should change accordingly */
+
+#menu_firstlink { padding-right: 5px; border-right: 1px solid #9f926b; }
+
+#menu_link { padding-right: 5px; padding-left: 5px; border-right: 1px solid #9f926b; }
+
+#menu_lastlink { padding-left: 5px; }
+
+
+
+/*********************************
+Center/Container styles
+**********************************/
+#content_center { margin: 0; padding: 0 20px; float: left; width: 678px;border-left: 1px dotted #9f926b}
+
+#content_center h4{line-height: 18px;word-spacing:2px; text-align: justify;}
+
+#content_center h4 a{border-bottom: 1px dotted #ccbc8b;}
+
+#content_center h3 a{border-bottom: 1px dotted #ccbc8b;}
+
+#content_center ul,ol{padding-left: 20px;}
+
+#content_center li{margin-bottom: 5px;}
+
+#content_center td{padding: 5px;}
+
+#content_root ul { margin-left: -20px; }
+
+#content_root li { display: inline; }
+
+#content_root a { color: #9f926b; }
+
+#content_root a:hover { color: #00266d; }
+
+.faculty_img { background-image: url('../images/fac_bckgnd.png'); background-repeat: no-repeat; padding: 10px; }
+
+/*********************************
+

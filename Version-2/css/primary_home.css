@@ -1,0 +1,92 @@
+/****************************************************************************************
+Layout Stylesheet for Middle content: defines widths, margins, floats, and other 
+advanced display attributes for the middle section (sidebars and main content)
+****************************************************************************************/
+
+
+/*********************************
+Main Content - Wrapper
+**********************************/
+#content_main { margin: -20px 0 30px 0; float: left; width: 824px;  padding: 0; }
+
+
+
+/*********************************
+Menu
+**********************************/
+#menu { float: left; width: 240px; margin-right: 20px; margin-top: 0px;}
+#nav_menu{ border-bottom: 1px solid #9f926b; padding-bottom: 5px; }
+
+
+#nav_menu li { display: inline; }
+
+
+#nav_menu li a { font-size: 12px; text-decoration: none; color: #3f3c30; border: none }
+
+
+#nav_menu li a:hover { color: #00266d }
+
+
+/* Hard-coded IDs - if the footer text changes in footer.html then these IDs should change accordingly */
+
+#menu_firstlink { padding-right: 5px; border-right: 1px solid #9f926b; }
+
+#menu_link { padding-right: 5px; padding-left: 5px; border-right: 1px solid #9f926b; }
+
+#menu_lastlink { padding-left: 5px; }
+
+
+
+/*********************************
+Center/Container styles
+**********************************/
+#content_center { margin: 0; padding: 0 20px; float: left; width: 500px; border-right: 1px solid #eeeeee; border-left: 1px solid #eeeeee; }
+
+#content_center h4{line-height: 18px;word-spacing:2px;}
+
+#content_center h4 a{border-bottom: 1px dotted #ccbc8b;}
+
+#content_center h3 a{border-bottom: 1px dotted #ccbc8b;}
+
+#content_center li{margin-bottom: 5px;}
+
+#content_center th{padding-bottom: 10px;}
+
+
+#imgslideshow {background-image: url('../images/img_bckgnd.jpg'); background-repeat: no-repeat; width: 500px; height:300px; padding-left: 1px; padding-top: 15px; }
+
+#imgslide { height: 270px; width: 465px; }
+
+.image { background-image: url('../images/img_bckgnd1.jpg'); background-repeat: no-repeat; padding: 10px; }
+
+#content_center ul,ol{padding-left: 20px;}
+
+
+/*********************************
+Events column
+**********************************/
+
+#events_column {width: 310px; padding-top: 20px; padding-right: 15px; border-right: 1px solid #eeeeee;}
+
+
+#event { float: left; padding-left: 10px; padding-top: 5px; width: 150px; }
+
+
+
+
+/*********************************
+Latest
+**********************************/
+#latest_column {float: right; width: 160px; margin-top: -337px; }
+
+
+/*********************************
+Right column
+**********************************/
+#rightcolumn { padding-left: 0px; margin-top: -35px; float: left; width: 176px }
+
+#rightcolumn h3 a{text-decoration: underline;}
+#rightcolumn li a{border-bottom: 1px dotted #3f3c30}
+#rightcolumn li{ font-size:12px; padding-bottom:5px; color: #3f3c30;}
+
+#rightcolumn ul,ol{padding-left: 20px;}

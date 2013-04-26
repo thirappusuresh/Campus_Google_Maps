@@ -1,0 +1,269 @@
+<html>
+
+<head>
+
+
+
+<link rel="stylesheet" type="text/css" href="css/base.css" />
+
+<link rel="stylesheet" type="text/css" href="css/primary.css" />
+
+
+
+<style>
+
+
+
+h3 a {text-decoration: underline;}
+
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+
+<div id="datacontainer" style="position:absolute; left: 1px; top: 10px; width: 100%;" onMouseover="scrollspeed=0" onMouseout="scrollspeed=cache">
+
+
+
+<!-- ADD YOUR SCROLLER CONTENT INSIDE HERE -->
+
+<h3><!--<a href="../files/pdfs/Short_Course_CFD_IITH.pdf" target="_blank"><img border="0" src="/images/new.gif">Short Course CFD</a></h3>
+
+<br/>
+
+<h3><a href="academics/fee structure.html" target="_top">Fees Structure 2010-11</a></h3>
+
+<br/>
+-->
+<h3><a href="news.html" target="_top">"Information Network for Natural Disaster Mitigation and Recovery" project (INNDMR)</a></h3>
+
+<br/>
+
+<!--
+<h3><a href="../academics/pdfs/Rev2_updated Schedule final1.pdf" target="_blank">Supplementry Exam Schedule July'10</a></h3>
+
+<br/>
+-->
+<h3><a href="../academics/pdfs/Final anti Rag.pdf" target="_blank"><img border="0" src="/images/new.gif">Anti-Ragging Form</a></h3>
+
+<br/>
+
+<h3><a href="../community/students/pdf/zero tolerance.pdf" target="_blank">Formation of Institute level antiragging committee and squads</a></h3>
+
+<br/>
+
+<h3><a href="events/lectures.html" target="_top">Hitachi Expert Lecture Series</a></h3>
+
+<br/>
+
+<h3><a href="research/proj_jrf.html" target="_top">JRF Positions</a></h3>
+
+<br/>
+
+<h3><a href="research/best_paper.html" target="_top">Best Paper Award</a></h3>
+
+<br/>
+
+<h3><a href="bulletin_board/IYBA award.html" target="_top">Innovative Young Biotechnologist Award (IYBA)</a></h3>
+
+<br/>
+
+<h3><a href="bulletin_board/nasi award.html" target="_top">NASI - Young Scientist Platinum Jubilee Award</a></h3>
+
+<br/>
+
+<h3><a href="bulletin_board/dalton article.html" target="_top">Dalton Transactions Hot Article</a></h3>
+
+<br/>
+
+<h3><a href="bulletin_board/word/MCM SCHOLARSHIPS.doc" target="_blank">MCM Scholarships </a></h3>
+
+<br/>
+
+<h3><a href="bulletin_board/word/stud insurance.doc" target="_blank">Medical Insurance</a></h3>
+
+<br/>
+
+
+<h3><a href="eoi_arch.html" target="_top">EOI Architecture</a></h3>
+
+<br/>
+
+<!--
+
+<h3><a href="other_links/office order.html" target="_top">Office Order</a></h3>
+
+<br/>
+
+
+
+<h3><a href="admissions/mtech.html" target="_top">M. Tech. programme Short Listed Candidates</a></h3>
+
+<br/>-->
+
+<!--
+
+<h3><a href="recruitment.html" target="_top">Recruitment</a></h3>
+
+<br/>
+
+
+
+<h3><a href="research/arci_jrf.html" target="_top">ARCI - JRF Fellowships</a></h3>
+
+<br/>
+
+
+
+<h3><a href="research/pr_stposition.html" target="_top">Projects Staff Position</a></h3>
+
+<br/>-->
+
+
+
+
+
+<h3><a href="notices.html" target="_top">Call for Quotation</a></h3>
+
+<h4>Tender notification for interior works. Limited Tenders & Notices...</h4>
+
+<br/>
+
+
+
+<h3><a href="research/dst_project.html" target="_top">DST Young Scientist Project awarded</a></h3>
+
+<br/>
+
+
+
+<h3><a href="research/projects_list.html" target="_top">List of R & D Projects</a></h3>
+
+<br/>
+
+
+
+<h3><a href="other_links/iith_japan_collab.html" target="_top">IITH - Japan Collaboration Advisory Committee</a></h3>
+
+<br/>
+
+<!--<h3><a href="files/pdfs/faea.pdf" target="_blank">Foundation for Academic Excellence and Access</a></h3>
+
+<br/>-->
+
+
+
+<h3><a href="files/pdfs/branch_change_2010.pdf" target="_blank">Branch Change Form</a></h3>
+
+<br/>
+
+
+<!-- END SCROLLER CONTENT -->
+
+
+
+</div>
+
+
+
+<script type="text/javascript">
+
+
+
+/***********************************************
+
+* IFRAME Scroller script- ? Dynamic Drive DHTML code library (www.dynamicdrive.com)
+
+* This notice MUST stay intact for legal use
+
+* Visit Dynamic Drive at http://www.dynamicdrive.com/ for full source code
+
+***********************************************/
+
+
+
+//Specify speed of scroll. Larger=faster (ie: 5)
+
+var scrollspeed=cache=1
+
+
+
+//Specify intial delay before scroller starts scrolling (in miliseconds):
+
+var initialdelay=4000
+
+
+
+function initializeScroller(){
+
+dataobj=document.all? document.all.datacontainer : document.getElementById("datacontainer")
+
+dataobj.style.top="5px"
+
+setTimeout("getdataheight()", initialdelay)
+
+}
+
+
+
+function getdataheight(){
+
+thelength=dataobj.offsetHeight
+
+if (thelength==0)
+
+setTimeout("getdataheight()",10)
+
+else
+
+scrollDiv()
+
+}
+
+
+
+function scrollDiv(){
+
+dataobj.style.top=parseInt(dataobj.style.top)-scrollspeed+"px"
+
+if (parseInt(dataobj.style.top)<thelength*(-1))
+
+dataobj.style.top="5px"
+
+setTimeout("scrollDiv()",40)
+
+}
+
+
+
+if (window.addEventListener)
+
+window.addEventListener("load", initializeScroller, false)
+
+else if (window.attachEvent)
+
+window.attachEvent("onload", initializeScroller)
+
+else
+
+window.onload=initializeScroller
+
+
+
+
+
+</script>
+
+
+
+</body>
+
+</html>
+

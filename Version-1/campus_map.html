@@ -1,0 +1,398 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=true&amp;key=ABQIAAAAc77f5B7jYl198mQ6s63NgRSEO_V-fU7ABNhbRYX9dFnB2td3fhTa3wC_WLPodtIHEC8tbxa75hu4Pg" type="text/javascript"></script>
+<title>IIT Hyderabad | Campus Map</title>
+<link rel="shortcut icon" href="images/logo_iith.png" />
+<style>
+/*******************************************************
+Reset Stylesheet: resets margins, paddings, borders, lists, etc
+Credit: Eric Meyer, http://meyerweb.com/eric/thoughts/2007/05/01/reset-reloaded/
+*******************************************************/
+
+
+
+html, 
+body, 
+div, 
+span, 
+applet, 
+object, 
+iframe,
+h1, 
+h2, 
+h3, 
+h4, 
+h5, 
+h6, 
+p, 
+blockquote, 
+pre,
+a, 
+abbr, 
+acronym, 
+address, 
+cite, 
+code,
+del, 
+dfn, 
+font, 
+img, 
+ins, 
+kbd, 
+q, 
+s, 
+samp,
+small, 
+strike, 
+tt, 
+var,
+dl, 
+dt, 
+dd, 
+ol, 
+ul, 
+li,
+fieldset, 
+form, 
+label, 
+legend, 
+caption{ margin: 0; padding: 0px; border: 0;  outline: 0; font-weight: inherit; font-style: inherit; font-size: 100%; vertical-align: baseline }
+
+
+img a{border: 0;}
+
+
+:focus { outline: 0 }
+
+
+body { line-height: 1; color: black; background: white }
+
+
+table { border-collapse: separate; border-spacing: 0; margin: 0; border: 0;  outline: 0; font-weight: inherit; font-style: inherit; font-size: 100%; vertical-align: baseline  }
+
+
+caption, th, td { text-align: left; font-weight: normal }
+
+
+blockquote:before, blockquote:after, q:before, q:after { content: "" }
+
+
+blockquote, q { quotes: "" "" }
+
+</style>
+<link rel="stylesheet" type="text/css" href="css/layout.css" />
+<link rel="stylesheet" type="text/css" href="css/primary.css" />
+<style>
+#content_center { margin: 0; padding: 0 20px; float: left; width: 950px;border-left: 0px;}
+</style>
+
+
+</head>
+
+
+<body onunload="GUnload()">
+
+<div id="header">
+<div id="header_content">
+
+<div>
+<a href="http://www.iith.ac.in"><img src="images/header1234.png"></a>
+</div>
+
+
+<div>
+
+<form action="http://www.iith.ac.in/search_results.html" id="cse-search-box">
+
+    <fieldset id="search">
+    <input type="hidden" name="cx" value="009256320093129496559:xyaluvwatv0" />
+    <input type="hidden" name="cof" value="FORID:10" />
+    <input type="hidden" name="ie" value="UTF-8" />
+
+    <input type="text" onblur="if(this.value=='') this.value='Site Search';" onfocus="if(this.value=='Site Search') this.value='';" name="q" value="Site Search" size="40" />
+    <input type="submit" class="submit" value="" id="searchsubmit"  />
+    </fieldset>
+
+
+</form> 
+
+</div>
+
+</div>
+</div>
+
+<div id="header_links">
+
+
+</div>
+<br/><br/><br/>
+<div id="mainlayout">
+<br/><br/><br/>
+
+
+  <div id="content_main">
+  
+
+
+    <div id="content_center" style="position: relative; top: -17px;">
+
+
+	<h1>Campus Map</h1>
+
+<table border=1>
+      <tr>
+        <td>
+           <div id="map" style="width: 670px; height: 615px"></div>
+        </td>
+        <td width = 376 valign="top" >
+           <div id="side_bar" style="text-decoration: underline; color: #4444ff;"></div>
+           <div id="directions" style="overflow:auto;height:390px"><hr /></div>
+        </td>
+
+      </tr>
+</table>
+
+   <script type="text/javascript">
+    //<![CDATA[
+    if (GBrowserIsCompatible()) {
+      var side_bar_html = "";
+      var gmarkers = [];
+      var htmls = [];
+      // arrays to hold variants of the info window html with get direction forms open
+      var to_htmls = [];
+      var from_htmls = [];
+	  var i=0;
+	  var lastlinkid;
+
+      // A function to create the marker and set up the event window
+      function createMarker(point,name,label,html,label1,html1) {
+        var marker = new GMarker(point);
+
+        var i = gmarkers.length;
+
+		var linkid = "link"+(gmarkers.length);
+        // use a custom icon with letter A - Z
+        var letter = String.fromCharCode("A".charCodeAt(0) + (gmarkers.length));
+        var myIcon = new GIcon(G_DEFAULT_ICON, "http://www.google.com/mapfiles/marker" + letter + ".png");
+        myIcon.printImage = "http://maps.google.com/mapfiles/marker"+letter+"ie.gif"
+        myIcon.mozPrintImage = "http://maps.google.com/mapfiles/marker"+letter+"ff.gif"
+ 
+        var marker = new GMarker(point, {icon:myIcon});
+		
+        // The info window version with the "to here" form open
+        to_htmls[i] = html + '<br>Directions: <b>To here<\/b> - <a href="javascript:fromhere(' + i + ')">From here<\/a>' +
+           '<br>Start address:<form action="javascript:getDirections()">' +
+           '<input type="text" SIZE=40 MAXLENGTH=40 name="saddr" id="saddr" value="" /><br>' +
+           '<INPUT value="Get Directions" TYPE="SUBMIT"><br>' +
+           'Walk <input type="checkbox" name="walk" id="walk" /> &nbsp; Avoid Highways <input type="checkbox" name="highways" id="highways" />' +
+           '<input type="hidden" id="daddr" value="'+name+"@"+ point.lat() + ',' + point.lng() + 
+           '"/>';
+        // The info window version with the "from here" form open
+        from_htmls[i] = html + '<br>Directions: <a href="javascript:tohere(' + i + ')">To here<\/a> - <b>From here<\/b>' +
+           '<br>End address:<form action="javascript:getDirections()">' +
+           '<input type="text" SIZE=40 MAXLENGTH=40 name="daddr" id="daddr" value="" /><br>' +
+           '<INPUT value="Get Directions" TYPE="SUBMIT"><br>' +
+           'Walk <input type="checkbox" name="walk" id="walk" /> &nbsp; Avoid Highways <input type="checkbox" name="highways" id="highways" />' +
+           '<input type="hidden" id="saddr" value="'+name+"@"+ point.lat() + ',' + point.lng() +
+           '"/>';
+        // The inactive version of the direction info
+         html = html + '<br><b style="font-family:arial;color:#FF0000;font-size:12px;">Directions: </b><span style="font-family:arial;font-size:12px;"><a href="javascript:tohere('+i+')">To here<\/a> - <a href="javascript:fromhere('+i+')">From here<\/a></span>';
+
+        GEvent.addListener(marker, "click", function() {
+          marker.openInfoWindowHtml([new GInfoWindowTab(label,html), new GInfoWindowTab(label1,html1)]);
+		  document.getElementById(linkid).style.background="#FFFF00";
+          lastlinkid=linkid;
+        });
+        // save the info we need to use later for the side_bar
+        gmarkers.push(marker);
+		gmarkers[i] = marker;
+        htmls[i] = html;
+        // add a line to the side_bar html
+        side_bar_html += '<div style="float: left;font-family:arial;font-size:12px;">'+letter+'</div>'+") "+'<big id="'+linkid+'" style=" font-family:arial;font-size:12px;text-decoration: underline;"><a href="javascript:myclick(' + (gmarkers.length-1) + ')"> '+ name +'<\/a><br><\/big>';
+        return marker;
+      }
+
+      // ===== request the directions =====
+      function getDirections() {
+        // ==== Set up the walk and avoid highways options ====
+        var opts = {};
+        if (document.getElementById("walk").checked) {
+           opts.travelMode = G_TRAVEL_MODE_WALKING;
+        }
+        if (document.getElementById("highways").checked) {
+           opts.avoidHighways = true;
+        }
+        // ==== set the start and end locations ====
+        var saddr = document.getElementById("saddr").value
+        var daddr = document.getElementById("daddr").value
+        gdir.load("from: "+saddr+" to: "+daddr, opts);
+      }
+
+
+      // This function picks up the click and opens the corresponding info window
+      function myclick(i) {
+        GEvent.trigger(gmarkers[i], "click");
+      }
+
+      // functions that open the directions forms
+      function tohere(i) {
+        gmarkers[i].openInfoWindowHtml(to_htmls[i]);
+      }
+      function fromhere(i) {
+        gmarkers[i].openInfoWindowHtml(from_htmls[i]);
+      }
+	  
+      // create the map
+      var map = new GMap2(document.getElementById("map"));
+      map.addControl(new GMapTypeControl());
+	  map.addControl(new GLargeMapControl3D());
+      map.setMapType( G_HYBRID_MAP ); 
+      map.setCenter(new GLatLng(17.49976330655304,78.1406021118164),15);
+
+      // === create a GDirections Object ===
+      var gdir=new GDirections(map, document.getElementById("directions"));
+
+      // === Array for decoding the failure codes ===
+      var reasons=[];
+      reasons[G_GEO_SUCCESS]            = "Success";
+      reasons[G_GEO_MISSING_ADDRESS]    = "Missing Address: The address was either missing or had no value.";
+      reasons[G_GEO_UNKNOWN_ADDRESS]    = "Unknown Address:  No corresponding geographic location could be found for the specified address.";
+      reasons[G_GEO_UNAVAILABLE_ADDRESS]= "Unavailable Address:  The geocode for the given address cannot be returned due to legal or contractual reasons.";
+      reasons[G_GEO_BAD_KEY]            = "Bad Key: The API key is either invalid or does not match the domain for which it was given";
+      reasons[G_GEO_TOO_MANY_QUERIES]   = "Too Many Queries: The daily geocoding quota for this site has been exceeded.";
+      reasons[G_GEO_SERVER_ERROR]       = "Server error: The geocoding request could not be successfully processed.";
+      reasons[G_GEO_BAD_REQUEST]        = "A directions request could not be successfully parsed.";
+      reasons[G_GEO_MISSING_QUERY]      = "No query was specified in the input.";
+      reasons[G_GEO_UNKNOWN_DIRECTIONS] = "The GDirections object could not compute directions between the points.";
+
+      // === catch Directions errors ===
+      GEvent.addListener(gdir, "error", function() {
+        var code = gdir.getStatus().code;
+        var reason="Code "+code;
+        if (reasons[code]) {
+          reason = reasons[code]
+        } 
+
+        alert("Failed to obtain directions, "+reason);
+      });
+
+	  // add the points   
+	  var point = new GLatLng(17.493964065860425,78.14192712306976);
+      var marker = createMarker(point,"Institute Building",'Information','<span style="font-family:arial;color:black;font-size:12px;">Indian Institute of Technology Hyderabad<br>Ordnance Factory Estate<br>Yeddumailaram 502205<br>Andhra Pradesh, INDIA',"Photo",'<image src="images/event_1.jpg" width=180 height=120>')	  
+	  map.addOverlay(marker);
+	  
+	  var point = new GLatLng(17.508711220442244,78.13957750797272);
+      var marker = createMarker(point,"Boys' Hostel 100-200 series","Information","Info not available","Photo","Sorry, Photo Not Available")
+	  map.addOverlay(marker);
+	  
+      var point = new GLatLng(17.508255905564514,78.140167593956);
+      var marker = createMarker(point,"Boys' Hostel 300 series","Information","Info not available","Photo","Sorry, Photo Not Available")
+      map.addOverlay(marker);
+	 
+	  var point = new GLatLng(17.50901305776575,78.14094543457031);
+      var marker = createMarker(point,"Boys' Hostel 400 series","Information","Info not available","Photo","Sorry, Photo Not Available")
+	  map.addOverlay(marker);
+
+      var point = new GLatLng(17.509422327911647,78.14082741737366);
+      var marker = createMarker(point,"Boys' Hostel 500 series","Information","Info not available","Photo","Sorry, Photo Not Available")
+	  map.addOverlay(marker);
+	  
+	  var point = new GLatLng(17.493813134761506,78.13884258270264);
+      var marker = createMarker(point,"Senier Club","Information","Senier Club","Photo","Sorry, Photo Not Available")
+	  map.addOverlay(marker);
+	 
+	  var point = new GLatLng(17.500141900745838,78.14678728580475);
+      var marker = createMarker(point,"Auditorium","Information","Auditorium","Photo","Sorry, Photo Not Available")
+	  map.addOverlay(marker);
+	  
+	  var point = new GLatLng(17.500172597537702,78.14593702554703);
+      var marker = createMarker(point,"Complex","Information","Shops,Bus Stop and market(only on Tuesday and Friday)","Photo","Sorry, Photo Not Available")
+	  map.addOverlay(marker);
+	  
+	  var point = new GLatLng(17.50026468788222,78.143590092659);
+      var marker = createMarker(point,"SBH","Information","State Bank Of Hyderabad","Photo","Sorry, Photo Not Available")
+	  map.addOverlay(marker);
+	  
+	  var point = new GLatLng(17.49872984271434,78.14499825239182);
+      var marker = createMarker(point,"Hospital","Information","Info not available","Photo","Sorry, Photo Not Available")
+	  map.addOverlay(marker);
+	  
+	  var point = new GLatLng(17.504976581552643,78.1443303823471);
+      var marker = createMarker(point,"Post Office","Information","ODF Post Office","Photo","Sorry, Photo Not Available")
+	  map.addOverlay(marker);
+	  
+	  var point = new GLatLng(17.492173349831027,78.13596725463867);
+      var marker = createMarker(point,"Girls' Hostel","Information","Info not available","Photo","Sorry, Photo Not Available")
+	  map.addOverlay(marker);
+	  
+	  var point = new GLatLng(17.511977687527615,78.13413798809052);
+      var marker = createMarker(point,"Workshop","Information","Info not available","Photo","Sorry, Photo Not Available")
+	  map.addOverlay(marker);
+	  
+	  var point = new GLatLng(17.507202026300536,78.13645005226135);
+      var marker = createMarker(point,"Amul","Information","Amul food court","Photo","Sorry, Photo Not Available")
+	  map.addOverlay(marker);
+	  
+	  var point = new GLatLng(17.502894359135944,78.13655465841293);
+      var marker = createMarker(point,"Stadium","Information","Info not available","Photo","Sorry, Photo Not Available")
+	  map.addOverlay(marker);
+     
+	  GEvent.addListener(map,"infowindowclose", function() {
+        document.getElementById(lastlinkid).style.background="#ffffff";
+      });
+	  
+	  // put the assembled side_bar_html contents into the side_bar div
+      document.getElementById("side_bar").innerHTML = side_bar_html;
+    }
+	else {
+      alert("Sorry, the Google Maps API is not compatible with this browser");
+    }
+    // This Javascript is based on code provided by the
+    // Community Church Javascript Team
+    // http://www.bisphamchurch.org.uk/   
+    // http://econym.org.uk/gmap/
+
+    //]]>
+    </script>
+
+
+   </div>
+
+  </div>
+
+
+  </div>
+
+
+
+  <div id="footer" class="clear">
+ <hr class="hide" />
+<ul id="nav_footer">
+
+    <li id="footer_link"><a href="http://www.iith.ac.in">Home</a></li>
+    <li id="footer_link"><a href="../mous.html">MoUs</a></li>
+    <li id="footer_link"><a href="../bulletin_board.html">Bulletin Board</a></li>
+    <li id="footer_link"><a href="http://mail.iith.ac.in" target="_blank">Webmail</a></li>
+
+    <li id="footer_link"><a href="../rti.html">R T I</a></li>
+    <li id="footer_link"><a href="../phone_book.html">Phone Book</a></li>
+    <li id="footer_link"><a href="../sitemap.html">Sitemap</a></li>
+    <li id="footer_link"><a href="../directions.html">Directions</a></li>
+    <li id="footer_link"><a href="../campus_map.html">Campus Map</a></li>
+
+    <li id="footer_lastlink"><a href="../contact_us.html">Contact Us</a></li>
+
+  </ul>
+  <div id="copyright">
+    <p class="vcard">&#169; 2010 - 11 Indian Institute of Technology Hyderabad, Hyderabad, India.</p>
+</div>
+ 
+</div>
+</body>
+
+</html>
+
+
+
